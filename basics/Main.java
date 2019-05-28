@@ -92,6 +92,7 @@ public class Main {
         int minute = now.getMinute();
         int second = now.getSecond();
         String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+        System.out.println(time);
         while(true) {
             int currentSecond = LocalDateTime.now().getSecond();
             if(second != currentSecond) {
