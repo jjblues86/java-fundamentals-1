@@ -101,7 +101,6 @@ public class Main {
                 time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
                 System.out.println(time);
             }
-//            Calendar.getInstance().get(Calendar.SECOND);
         }
     }
 
