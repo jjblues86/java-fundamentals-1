@@ -12,16 +12,18 @@ import java.time.LocalDateTime;
 
 public class Main {
     public static void main(String[] args) {
-//        int dogCount = 1;
-//        System.out.println("I own " + dogCount + " " + pluralize("dog", dogCount) + ".");
-//
-//        int catCount = 2;
-//        System.out.println("I own " + catCount + " " + pluralize("cat", catCount) + ".");
-//
-//        int turtleCount = 0;
-//        System.out.println("I own " + turtleCount + " " + pluralize("turtle", turtleCount) + ".");
+        int dogCount = 1;
+        System.out.println("I own " + dogCount + " " + pluralize("dog", dogCount) + ".");
 
-//        flipNHeads(10);
+        int catCount = 2;
+        System.out.println("I own " + catCount + " " + pluralize("cat", catCount) + ".");
+
+        int turtleCount = 0;
+        System.out.println("I own " + turtleCount + " " + pluralize("turtle", turtleCount) + ".");
+
+        flipNHeads(1);
+        flipNHeads(3);
+
         clock();
     }
 
@@ -83,23 +85,18 @@ public class Main {
      * someone manually kills it with CTRL-C
      * or presses the “stop” button in their IDE.
      * Each time should only be printed once.
-     * Your program should detect when the seconds increase
+     * The program detects when the seconds increase
      * and only print something out when the timestamp changes.
      */
     private static void clock() {
         LocalDateTime now = LocalDateTime.now();
-        int hour = now.getHour();
-        int minute = now.getMinute();
-        int second = now.getSecond();
-        String time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-        System.out.println(time);
+
         while(true) {
-            int currentSecond = LocalDateTime.now().getSecond();
-            if(second != currentSecond) {
-                second = currentSecond;
-                now = LocalDateTime.now();
-                time = now.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
-                System.out.println(time);
+            LocalDateTime current = LocalDateTime.now();
+            if(now.getSecond() != current.getSecond()) {
+                now = current;
+                String statement = current.format(DateTimeFormatter.ofPattern("HH:mm:ss"));
+                System.out.println(statement);
             }
         }
     }
