@@ -23,6 +23,7 @@ public class Main {
 
         flipNHeads(1);
         flipNHeads(3);
+        flipNHeads(5);
 
         clock();
     }
