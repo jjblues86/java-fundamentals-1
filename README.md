@@ -2,6 +2,7 @@
 
 *This is the java fundamentals directory for 401.*
 
+**Labs**
 1. The [basics](./basics) directory has a [Main.java](./basics/Main.java) file that contains methods 
 pluralize, flipNHeads, and clock.
 
