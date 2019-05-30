@@ -10,3 +10,6 @@ pluralize, flipNHeads, and clock.
 class with four methods and a [test](.basicLibrary/src/test/java/basicLibary/LibraryTest.java) class.
 The four methods are roll, containsDuplicates, 
 calcAverages, and arrayOfArrays.
+
+3. The [linter](./linter) directory has a [Library](./linter/src/main/java/linter/App.java) class
+that has a method that reads a .js file and finds errors.
