@@ -3,10 +3,84 @@
  */
 package basicLibrary;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Library {
+    private static Set<Integer> seen;
+    /**
+     * Takes in nested array
+     * and finds max and min values.
+     * Uses mas and min values as ranges
+     * to find temperatures not seen.
+     * @param data 2D int array
+     * @return String, never seen values
+     */
+    public String analyze2DForValues(int[][] data) {
+        int high = 0;
+        int low = 999;
+        seen = new HashSet<>();
+        for(int i = 0; i < data.length; i++) {
+            for(int j = 0; j < data[i].length; j++) {
+
+                //check if new high
+                if(data[i][j] > high) {
+                    high = data[i][j];
+                }
+
+                //check if new low
+                if(data[i][j] < low) {
+                    low = data[i][j];
+                }
+
+                //check if duplicate
+                if(!seen.contains(data[i][j])) {
+                    seen.add(data[i][j]);
+                }
+            }
+        }
+        return getNeverSeen(low, high);
+    }
+
+
+    //helper function to loop through max and min and return never seen values
+    private String getNeverSeen(int min, int max) {
+        StringBuilder result = new StringBuilder("High: " + max + "\nLow: " + min);
+
+        for (int i = min; i <= max; i++) {
+            if(!seen.contains(i)) {
+                result.append("\nNever saw temperature: " + i);
+            }
+        }
+        return result.toString();
+    }
+
+    /**
+     * Accepts a List of Strings representing votes
+     * and returns one string to show what got the most votes.
+     * @param list ArrayList of Strings that represent votes
+     * @return String element with most votes
+     */
+    public String tally(List<String> list) {
+        Map<String, Integer> tally = new HashMap<>();
+        for(String element : list) {
+            int count = tally.containsKey(element) ? tally.get(element) : 0;
+            tally.put(element, count += 1);
+        }
+
+        int largestKey = 0;
+        String largestKeyValue = "";
+
+        //iterate through hashmap and find largest value and save key
+        for (Map.Entry<String, Integer> map : tally.entrySet()) {
+            int value = map.getValue();
+            if (value > largestKey) {
+                largestKey = value;
+                largestKeyValue = map.getKey();
+            }
+        }
+
+        return largestKeyValue + " received the most votes!";
+    }
 
     /**
      * Accepts an integer n and rolls a six-sided dice n times.
