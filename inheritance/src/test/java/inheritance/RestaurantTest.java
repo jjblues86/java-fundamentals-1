@@ -25,6 +25,7 @@ public class RestaurantTest {
     public void checkJustInstantiatedRestaurant() {
         assertSame("Restaurant should have 0 stars after instantiation.", 0,
                 dinTaiFung.getStars());
+        assertSame("Name should be din tai fung", "din tai fung", dinTaiFung.getName());
         assertSame("Din Tai Fung should have 2 as price", 2, dinTaiFung.getPrice());
         assertTrue("To string method for din tai fung should contain name",
                 dinTaiFung.toString().contains("name"));
