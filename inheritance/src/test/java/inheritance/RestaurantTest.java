@@ -36,6 +36,12 @@ public class RestaurantTest {
     @Test
     public void addReviewsToDTF() {
         Review review = new Review("highly recommend", "j", 4);
+        //test review
+        assertEquals("Review body should state highly recommend", "highly recommend",
+                review.getBody());
+        assertEquals("Review author should be j", "j", review.getAuthor());
+        assertEquals("Review stars should be 4", 4, review.getStars());
+
         dinTaiFung.addReview(review);
         assertEquals("DTF stars should now be 4", 4, dinTaiFung.getStars());
 
