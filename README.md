@@ -14,5 +14,6 @@ calcAverages, and arrayOfArrays.
 3. The [linter](./linter) directory has a [Library](./linter/src/main/java/linter/App.java) class
 that has a method that reads a .js file and finds errors.
 
-4. The [inheritance](./inheritance) directory has a [Restaurant](./inheritance/src/main/java/inheritance/Restaurant.java) 
-class and [Review](./inheritance/src/main/java/inheritance/Review.java) class.
+4. The [inheritance](./inheritance) directory has an abstract [Business](./inheritance/src/main/java/inheritance/Business.java) 
+class which interacts with a [Review](./inheritance/src/main/java/inheritance/Review.java) class.
+Subclasses of Business are Shop, Theater, Restaurant.

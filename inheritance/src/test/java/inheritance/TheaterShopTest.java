@@ -8,25 +8,69 @@ import static org.junit.Assert.*;
 public class TheaterShopTest {
     private Theater theater1;
     private Theater theater2;
-    private Shop shop1;
-    private Shop shop2;
+
 
     @Before
     public void init() {
+
+        //two theater instances
         theater1 = new Theater("Cinemark");
         theater2 = new Theater("Ruston Way", "Pokemon Detective Pikachu");
-        shop1 = new Shop("shop1", "quaint and affordable", 2);
-        shop2 = new Shop("shop2", "expensive, not worth it", 5);
     }
 
     @Test
-    public void checkJustInstantiatedRestaurant() {
+    public void checkJustInstantiated() {
         assertSame("Restaurant should have 0 stars after instantiation.", 0,
                 theater1.getStars());
         assertSame("Name should be din tai fung", "Cinemark", theater1.getName());
-        assertTrue("To string method for din tai fung should contain name",
-                theater1.toString().contains("name"));
-        assertEquals("To string for dintaifung should b Restaurant name: 'din tai fung', stars: 0, price: 2",
-                "Restaurant name: 'din tai fung', stars: 0, price: 2", theater1.toString());
+        assertEquals(
+                "Theater toString should match 'Theater: name ='Cinemark'\nMovies that play at this theater: \n" +
+                        "Pokemon Detective Pikachu'",
+                "Theater: name ='Cinemark'\n" +
+                        "Movies that play at this theater: \n" +
+                        "Pokemon Detective Pikachu", theater1.toString());
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void theaterWithoutReviews() {
+        theater1.removeMovie("Pokemon Detective Pikachu");
+    }
+
+
+    @Test
+    public void addReviewToTheater() {
+        //review without movie
+        Review review1 = new Review("cool", "j", 2);
+        theater1.addReview(review1);
+
+        //theater doesn't have any movies listed yet
+        assertEquals("No movies listed yet",
+                "Theater: name ='Cinemark'\nMovies that play at this theater: none",
+                theater1.toString());
+
+        String result = "Theater: name ='Cinemark'\n" +
+                "Movies that play at this theater: \n" +
+                "Pokemon Detective Pikachu";
+
+        //add movie
+        theater1.addMovie("Pokemon Detective Pikachu");
+
+        //test for business ie theater name
+        assertEquals("Call get business + get name should retrieve theater 1 name - Theater: name ='Cinemark'\n" +
+                        "Movies that play at this theater: \n" +
+                        "Pokemon Detective Pikachu",
+                result,
+                review1.getBusiness().toString());
+
+        //test that duplicate movie does not get added
+        theater2.addReview(review1);
+        int numOfMovies = theater2.getMovies().size();
+        assertEquals("Movies at theater 2 should still be one", 1, numOfMovies);
+
+    }
+
+    @Test (expected = IllegalArgumentException.class)
+    public void removeFromEmpty() {
+        theater1.removeMovie("Pokemon Detective Pikachu");
     }
 }
