@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import static org.junit.Assert.*;
 
-public class TheaterShopTest {
+public class TheaterTest {
     private Theater theater1;
     private Theater theater2;
 
