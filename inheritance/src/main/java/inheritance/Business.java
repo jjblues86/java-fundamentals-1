@@ -16,7 +16,7 @@ public abstract class Business implements ReviewInterface {
     private String name;
     private static int totalStars;
     private int stars;
-    private static List<Review> reviewList = new ArrayList<>();
+    private List<Review> reviewList = new ArrayList<>();
 
     /**
      * Constructor that accepts name.

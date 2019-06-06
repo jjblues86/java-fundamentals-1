@@ -22,7 +22,6 @@ public class Theater extends Business {
         super(name);
         movies =  new HashSet<>();
         movies.add(movie);
-        this.setStars(0);
     }
 
     //if movie already exists, will throw user to let user know
