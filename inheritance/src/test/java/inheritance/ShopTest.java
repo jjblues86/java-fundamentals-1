@@ -44,6 +44,6 @@ public class ShopTest {
         assertTrue(shop1.getResultList().contains(review2));
         assertTrue(shop1.getResultList().contains(review3));
 
-        assertEquals("Reviewer name should be d", "d", review2.getBusiness().getName());
+        assertEquals("Reviewer name should be d", "shop1", review2.getBusiness().getName());
     }
 }

@@ -22,13 +22,13 @@ public class TheaterTest {
     public void checkJustInstantiated() {
         assertSame("Restaurant should have 0 stars after instantiation.", 0,
                 theater1.getStars());
-        assertSame("Name should be din tai fung", "Cinemark", theater1.getName());
+        assertSame("Name should be cinemark", "Cinemark", theater1.getName());
+
+        //theater should not have any reviews
         assertEquals(
-                "Theater toString should match 'Theater: name ='Cinemark'\nMovies that play at this theater: \n" +
-                        "Pokemon Detective Pikachu'",
+                "Just instantiated theater should not have any reviews",
                 "Theater: name ='Cinemark'\n" +
-                        "Movies that play at this theater: \n" +
-                        "Pokemon Detective Pikachu", theater1.toString());
+                        "Movies that play at this theater: none", theater1.toString());
     }
 
     @Test (expected = IllegalArgumentException.class)
